@@ -1,0 +1,161 @@
+#!/usr/bin/python
+import sys, getopt
+from cmath import inf
+
+"""assignment_02.py: Pairwise alignment."""
+
+__author__      = "Emil und Raphael"
+
+# This function parses commandline options, as follows:
+#  -i <input-file>: if provided, read sequences from named file, not from standard input.
+#  -o <output-file>: If provided, write aligned sequences to named file, not to standard
+# output.
+#  -a <score>: Set match score.
+#  -b <score>: Set mismatch score.
+#  -d <score>: Set gap open penalty.
+#  -e <score>: Set gap extend penalty.
+
+def parse_commandline(argv):
+    help_str = 'test.py -i <inputfile> -o <outputfile> -a <match score> -b <mismatch score> -c <gap penalty>'
+    input_parameters = {}
+    try:
+        opts, args = getopt.getopt(argv, "h:i:o:a:b:d:e:",
+                                   ["ifile=",
+                                    "ofile=",
+                                    "match_score=",
+                                    "mismatch_score=",
+                                    "gap_open=",
+                                    "gap_extend="])
+    except getopt.GetoptError:
+        print(help_str)
+        sys.exit()
+
+    for opt, arg in opts:
+        if opt == '-h':
+            print(help_str)
+            sys.exit()
+        elif opt in ("-i", "--ifile"):
+            input_parameters["ifile"] = arg
+
+        elif opt in ("-o", "--ofile"):
+            input_parameters["ofile"] = arg
+
+        elif opt in ("-a", "--match_score"):
+            input_parameters["match_score"] = int(arg)
+
+        elif opt in ("-b", "--mismatch_score"):
+            input_parameters["mismatch_score"] = int(arg)
+
+        elif opt in ("-d", "--gap_open"):
+            input_parameters["gap_open"] = int(arg)
+
+        elif opt in ("-e", "--gap_extend"):
+            input_parameters["gap_extend"] = int(arg)
+
+    print("Options:")
+    for i, j in input_parameters.items():
+        print("\t",i,": ", j,sep="")
+    return input_parameters
+
+# The program starts here:
+print("Program: Assignment 02 - pairwise aligner with affine gap scoring")
+print("Author:",__author__)
+
+# parse options:
+input_parameters=parse_commandline(sys.argv[1:])
+
+# problem 2: check options PLEASE_IMPLEMENT
+print("TODO: check parameters")
+
+# read input:
+input= "sequences.txt" in input_parameters.keys() and open(input_parameters["sequences.txt"],mode="r") or sys.stdin # read from stdin if no input file given
+
+x_header=input.readline().strip()
+x_sequence=input.readline().strip() # assuming whole sequence is on one line
+y_header=input.readline().strip()
+y_sequence=input.readline().strip() # assuming whole sequence is on one line
+
+input==sys.stdin or input.close() # close if reading from a file
+
+# problem 1: compute alignment score PLEASE_IMPLEMENT
+print("TODO: perform dynamic programming to compute alignment score")
+# set the gap-panalties
+gap-opening-panalty = -2
+
+gap-isopen-penalty = -1
+
+#set the affine gap panalty
+Affine-gap-penalties = gap-opening-panalty + (indel - 1) * gap-isopen-penalty
+
+# initializing two 2D matrixies, and filling it first with zeros.
+rows, coloums = (len(x_sequence), len(y_sequence))
+
+M = []
+I = []
+
+
+for x in range(rows + 1):
+    M.append([])
+    for y in range(coloums + 1):
+        M[x].append(0)
+
+for x in range(rows + 1):
+    I.append([])
+    for y in range(coloums + 1):
+        M[x].append(0)
+
+# initializing the infinity conditions in the two matrixies
+
+for x in range(1 , rows+ 1):
+    M[0][x] = -inf
+    I[0][x] = -inf
+
+
+
+for x in range(1, rows+1):
+    for y in range(1, coloums +1);
+        M[i][j] = max( M[i][j-1] + score.gap,
+               M[i-1][j] + score.gap,
+               M[i-1][j-1] + score.matchchar(x[i-1], y[j-1]),
+               0)
+
+        I[i][j] = max( M[i - 1][j] - d,
+               I[i - 1][j] - e,
+               M[i][j - 1] - e,
+               I[i][j - 1] - e)
+
+optimal-score = M[rows + 1][coloums + 1]
+
+
+
+# problem 3: perform trace-back PLEASE_IMPLEMENT
+print("TODO: perform trace-back to compute alignment")
+
+# Making two empty strings for the optimal alingment.
+
+sequenceX = ""
+
+sequenceY = ""
+
+while x_sequence > 0:
+    #things to do
+    sequenceX = sequenceX + "-"
+
+    sequenceY = sequenceY + "-"
+
+    rows - 1
+
+    coloums -1
+
+output= "ofile" in input_parameters.keys() and open(input_parameters["ofile"],mode="w") or sys.stdout # write to stdout if no output file given
+
+# This currently writes the two sequences to the given output file... replace this by the output that your algorithm computes
+print("TODO: replace output of sequences by output of score and output of alignment")
+
+print(x_header,x_sequence,y_header,y_sequence,sep="\n",file=output)
+
+output == sys.stdout or output.close() # close if writing to a file
+
+
+
+
