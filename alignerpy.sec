@@ -133,19 +133,28 @@ print("TODO: perform trace-back to compute alignment")
 
 # Making two empty strings for the optimal alingment.
 
-sequenceX = ""
+alignedSequenceX = ""
 
-sequenceY = ""
+alignedSequenceY = ""
 
-while x_sequence > 0:
-    #things to do. test for github.
-    sequenceX = sequenceX + "-"
+# Loop for the Traceback. Goes from last Cell to first and concatined the two sequences.
+while rows >1 or coloums > 1:
 
-    sequenceY = sequenceY + "-"
+    if i > 0 and j > 0 and X[i - 1] == Y[j - 1]:
+        align_X = X[rows - 1] + align_X
+        align_Y = Y[coloums - 1] + align_Y
+        rows = rows - 1
+        coloums = coloums - 1
 
-    rows - 1
+    elif i > 0 and current_score == left_score + penalty:
+        align_X = X[rows - 1] + align_X
+        alignedSequenceY = "-" + alignedSequenceY
+        rows = rows - 1
 
-    coloums -1
+    else:
+        alignedSequenceX = "-" + alignedSequenceX
+        align_Y = Y[coloums - 1] + align_Y
+        coloums = coloums - 1
 
 output= "ofile" in input_parameters.keys() and open(input_parameters["ofile"],mode="w") or sys.stdout # write to stdout if no output file given
 
