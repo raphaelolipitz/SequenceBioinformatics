@@ -92,7 +92,6 @@ gap_open = 3
 
 gap_extend = 2
 
-#set the affine gap penalty
 def aff_gap_pen(k):
     return gap_open + (k - 1) * gap_extend
 
@@ -101,84 +100,29 @@ def match(x,y):
         return matchScore
     return mismatchScore
 
-# initializing two 2D matrices, and filling it first with zeros.
+# initialize
 rows, cols = (len(x_sequence), len(y_sequence))
 
-M = []
-
-Ix = []
-
-Iy = []
-
-I = []
-
-# TODO refactor
-
-for x in range(rows + 1):
-    M.append([])
-    Ix.append([])
-    Iy.append([])
-    I.append([])
-    for y in range(cols + 1):
-        M[x].append(0)
-        Ix[x].append(0)
-        Iy[x].append(0)
-        I[x].append(0)
-
-# initializing the infinity conditions in the two matrixies.
-# For M all first rows and coloums get -inf. for Iy and Ix only one
-# and the other got the d * i * e.
-
-for i in range(1 , rows + 1):
-    M[0][i] = -inf
-    Ix[0][i] = -inf
-    Iy[0][i] = aff_gap_pen(i)
-
-
-for j in range(1, cols + 1):
-    M[j][0] = -inf
-    Iy[j][0] = -inf
-    Ix[j][0] = aff_gap_pen(j)
-
-
-# Alignment will be executed following:
-for i in range(1, rows + 1):
-    for j in range(1, cols + 1):
-
-        M[i][j] = max(M[i-1][j-1] + match(x_sequence[i-1], y_sequence[j-1]),
-                      Ix[i-1][j-1] + match(x_sequence[i-1], y_sequence[j-1]),
-                      Ix[i-1][j-1] + match(x_sequence[i-1], y_sequence[j-1]))
+M = [[0] * (cols + 1)] * (rows + 1)
+I = [[0] * (cols + 1)] * (rows + 1)
         
-        Ix[i][j] = max(score.gap_start + score.gap + M[i-1][j],
+# recursion
 
-#Was ist das? score.gap? woher diese Formel? Im Skript sind das hier nur zwei Optionen?
-#        Ix[i][j] = max(score.gap_start + score.gap + M[i][j-1],
- #                      score.gap + Ix[i][j-1],
-  #                     score.gap_start + score.gap + Iy[i][j-1])
-
-   #     Iy[i][j] = max(score.gap_start + score.gap + M[i-1][j],
-    #                   score.gap_start + score.gap + Ix[i-1][j],
-     #                  score.gap + Iy[i-1][j])
-
-# Second approche with ohne I.
 for i in range(1, rows + 1):
     for j in range(1, cols + 1):
 
-        M[i][j] = max(M[i - 1][j - 1], Ix[i - 1][j - 1], Ix[i - 1][j - 1])
+        M[i][j] = max(M[i - 1][j - 1] + match(x_sequence[i-1], y_sequence[j-1]), 
+                      I[i - 1][j - 1] + match(x_sequence[i-1], y_sequence[j-1]))
 
-        I[i][j] = max(score.gap_start + score.gap + M[i][j-1],
-                    score.gap + I[i][j-1],
-                    score.gap_start + score.gap + I[i][j-1],
-                    score.gap_start + score.gap + M[i-1][j],
-                    score.gap_start + score.gap + I[i-1][j],
-                    score.gap + I[i-1][j])
-
+        I[i][j] = max(M[i-1][j] - gap_open,
+                      I[i-1][j] - gap_extend,
+                      M[i][j-1] - gap_open,
+                      I[i][j-1] - gap_extend)
 
 
+optimalScore = max( M[rows][cols], I[rows][cols])
 
-optimalScore = max( M[rows + 1][cols + 1], Ix[rows + 1][cols + 1], Iy[rows + 1][cols + 1])
-
-
+print("optimal alignment score: {}".format(optimalScore))
 
 # problem 3: perform trace-back PLEASE_IMPLEMENT
 print("TODO: perform trace-back to compute alignment")
@@ -189,7 +133,7 @@ alignedSequenceX = ""
 
 alignedSequenceY = ""
 
-# Loop for the Traceback. Goes from last Cell to first and concatined the two sequences.
+# Loop for the Traceback. Goes from last cell to first and concatinates the two sequences.
 while rows > 0 or cols > 0:
 
     # if anweisung für den Fall eines Matches.
