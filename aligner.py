@@ -68,7 +68,10 @@ input_parameters=parse_commandline(sys.argv[1:])
 print("TODO: check parameters")
 
 # read input:
-input= "sequences.txt" in input_parameters.keys() and open(input_parameters["sequences.txt"],mode="r") or sys.stdin # read from stdin if no input file given
+#input= "sequences.txt" in input_parameters.keys() and open(input_parameters["sequences.txt"],mode="r") or sys.stdin # read from stdin if no input file given
+
+input= "ifile" in input_parameters.keys() and open(input_parameters["ifile"],mode="r") or sys.stdin # read from stdin if no input file given
+
 
 x_header=input.readline().strip()
 x_sequence=input.readline().strip() # assuming whole sequence is on one line
@@ -79,21 +82,27 @@ input==sys.stdin or input.close() # close if reading from a file
 
 # problem 1: compute alignment score PLEASE_IMPLEMENT
 print("TODO: perform dynamic programming to compute alignment score")
-# set the gap-panalties
+# set the gap-penalties
 
 matchScore = 1
 
 mismatchScore = -2
 
-gap-opening-panalty = 3
+gap_open = 3
 
-gap-isopen-penalty = 2
+gap_extend = 2
 
-#set the affine gap panalty
-Affine-gap-penalties = gap-opening-panalty + (indel - 1) * gap-isopen-penalty
+#set the affine gap penalty
+def aff_gap_pen(k):
+    return gap_open + (k - 1) * gap_extend
 
-# initializing two 2D matrixies, and filling it first with zeros.
-rows, coloums = (len(x_sequence), len(y_sequence))
+def match(x,y):
+    if (x==y):
+        return matchScore
+    return mismatchScore
+
+# initializing two 2D matrices, and filling it first with zeros.
+rows, cols = (len(x_sequence), len(y_sequence))
 
 M = []
 
@@ -103,61 +112,57 @@ Iy = []
 
 I = []
 
+# TODO refactor
+
 for x in range(rows + 1):
     M.append([])
-    for y in range(coloums + 1):
-        M[x].append(0)
-
-
-for x in range(rows + 1):
     Ix.append([])
-    for y in range(coloums + 1):
-        Ix[x].append(0)
-
-
-for x in range(rows + 1):
     Iy.append([])
-    for y in range(coloums + 1):
-        Iy[x].append(0)
-
-
-for x in range(rows + 1):
     I.append([])
-    for y in range(coloums + 1):
+    for y in range(cols + 1):
+        M[x].append(0)
+        Ix[x].append(0)
+        Iy[x].append(0)
         I[x].append(0)
 
-# initializing the infinity conditions in the two matrixies. For M all first rows and coloums gets -inf. for Iy and Ix only one
-#and the other got the d * i * e.
+# initializing the infinity conditions in the two matrixies.
+# For M all first rows and coloums get -inf. for Iy and Ix only one
+# and the other got the d * i * e.
 
 for i in range(1 , rows + 1):
     M[0][i] = -inf
     Ix[0][i] = -inf
-    Iy[0][i] = Affine-gap-penalties
+    Iy[0][i] = aff_gap_pen(i)
 
 
-for j in range(1, coloums + 1):
+for j in range(1, cols + 1):
     M[j][0] = -inf
     Iy[j][0] = -inf
-    Ix[j][0] = Affine - gap - penalties
+    Ix[j][0] = aff_gap_pen(j)
 
 
 # Alignment will be executed following:
-for i in range(1, rows+1):
-    for j in range(1, coloums +1):
+for i in range(1, rows + 1):
+    for j in range(1, cols + 1):
 
-        M[i][j] = max( M[i-1][j-1], Ix[i-1][j-1], Ix[i-1][j-1])
+        M[i][j] = max(M[i-1][j-1] + match(x_sequence[i-1], y_sequence[j-1]),
+                      Ix[i-1][j-1] + match(x_sequence[i-1], y_sequence[j-1]),
+                      Ix[i-1][j-1] + match(x_sequence[i-1], y_sequence[j-1]))
+        
+        Ix[i][j] = max(score.gap_start + score.gap + M[i-1][j],
 
-        Ix[i][j] = max( score.gap_start + score.gap + M[i][j-1],
-                        score.gap + Ix[i][j-1],
-                        score.gap_start + score.gap + Iy[i][j-1])
+#Was ist das? score.gap? woher diese Formel? Im Skript sind das hier nur zwei Optionen?
+#        Ix[i][j] = max(score.gap_start + score.gap + M[i][j-1],
+ #                      score.gap + Ix[i][j-1],
+  #                     score.gap_start + score.gap + Iy[i][j-1])
 
-        Iy[i][j] = max( score.gap_start + score.gap + M[i-1][j],
-                        score.gap_start + score.gap + Ix[i-1][j],
-                        score.gap + Iy[i-1][j])
+   #     Iy[i][j] = max(score.gap_start + score.gap + M[i-1][j],
+    #                   score.gap_start + score.gap + Ix[i-1][j],
+     #                  score.gap + Iy[i-1][j])
 
 # Second approche with ohne I.
 for i in range(1, rows + 1):
-    for j in range(1, coloums + 1):
+    for j in range(1, cols + 1):
 
         M[i][j] = max(M[i - 1][j - 1], Ix[i - 1][j - 1], Ix[i - 1][j - 1])
 
@@ -171,7 +176,7 @@ for i in range(1, rows + 1):
 
 
 
-optimalScore = max( M[rows + 1][coloums + 1], Ix[rows + 1][coloums + 1], Iy[rows + 1][coloums + 1])
+optimalScore = max( M[rows + 1][cols + 1], Ix[rows + 1][cols + 1], Iy[rows + 1][cols + 1])
 
 
 
@@ -185,17 +190,17 @@ alignedSequenceX = ""
 alignedSequenceY = ""
 
 # Loop for the Traceback. Goes from last Cell to first and concatined the two sequences.
-while rows > 0 or coloums > 0:
+while rows > 0 or cols > 0:
 
     # if anweisung für den Fall eines Matches.
     if rows > 0 and j > 0 and Ix[i - 1] == Iy[j - 1]:
         align_X = Ix[rows - 1] + align_X
-        align_Y = Iy[coloums - 1] + align_Y
+        align_Y = Iy[cols - 1] + align_Y
         rows = rows - 1
-        coloums = coloums - 1
+        cols = cols - 1
 
     # Fall das die X Sequence einen gap bekommt.
-    elif coloums > 0 and current_score == left_score + penalty:
+    elif cols > 0 and current_score == left_score + penalty:
         align_X = Ix[rows - 1] + align_X
         alignedSequenceY = "-" + alignedSequenceY
         rows = rows - 1
@@ -203,8 +208,8 @@ while rows > 0 or coloums > 0:
     # Fall das die Y Sequence einen gap bekommt.
     else:
         alignedSequenceX = "-" + alignedSequenceX
-        align_Y = Iy[coloums - 1] + align_Y
-        coloums = coloums - 1
+        align_Y = Iy[cols - 1] + align_Y
+        cols = cols - 1
 
 
 output= "ofile" in input_parameters.keys() and open(input_parameters["ofile"],mode="w") or sys.stdout # write to stdout if no output file given
