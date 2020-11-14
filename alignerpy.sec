@@ -80,9 +80,14 @@ input==sys.stdin or input.close() # close if reading from a file
 # problem 1: compute alignment score PLEASE_IMPLEMENT
 print("TODO: perform dynamic programming to compute alignment score")
 # set the gap-panalties
-gap-opening-panalty = -2
 
-gap-isopen-penalty = -1
+matchScore = 1
+
+mismatchScore = -2
+
+gap-opening-panalty = 3
+
+gap-isopen-penalty = 2
 
 #set the affine gap panalty
 Affine-gap-penalties = gap-opening-panalty + (indel - 1) * gap-isopen-penalty
@@ -91,40 +96,82 @@ Affine-gap-penalties = gap-opening-panalty + (indel - 1) * gap-isopen-penalty
 rows, coloums = (len(x_sequence), len(y_sequence))
 
 M = []
-I = []
 
+Ix = []
+
+Iy = []
+
+I = []
 
 for x in range(rows + 1):
     M.append([])
     for y in range(coloums + 1):
         M[x].append(0)
 
+
+for x in range(rows + 1):
+    Ix.append([])
+    for y in range(coloums + 1):
+        Ix[x].append(0)
+
+
+for x in range(rows + 1):
+    Iy.append([])
+    for y in range(coloums + 1):
+        Iy[x].append(0)
+
+
 for x in range(rows + 1):
     I.append([])
     for y in range(coloums + 1):
-        M[x].append(0)
+        I[x].append(0)
 
-# initializing the infinity conditions in the two matrixies
+# initializing the infinity conditions in the two matrixies. For M all first rows and coloums gets -inf. for Iy and Ix only one
+#and the other got the d * i * e.
 
-for x in range(1 , rows+ 1):
-    M[0][x] = -inf
-    I[0][x] = -inf
+for i in range(1 , rows + 1):
+    M[0][i] = -inf
+    Ix[0][i] = -inf
+    Iy[0][i] = Affine-gap-penalties
+
+
+for j in range(1, coloums + 1):
+    M[j][0] = -inf
+    Iy[j][0] = -inf
+    Ix[j][0] = Affine - gap - penalties
+
+
+# Alignment will be executed following:
+for i in range(1, rows+1):
+    for j in range(1, coloums +1):
+
+        M[i][j] = max( M[i-1][j-1], Ix[i-1][j-1], Ix[i-1][j-1])
+
+        Ix[i][j] = max( score.gap_start + score.gap + M[i][j-1],
+                        score.gap + Ix[i][j-1],
+                        score.gap_start + score.gap + Iy[i][j-1])
+
+        Iy[i][j] = max( score.gap_start + score.gap + M[i-1][j],
+                        score.gap_start + score.gap + Ix[i-1][j],
+                        score.gap + Iy[i-1][j])
+
+# Second approche with ohne I.
+for i in range(1, rows + 1):
+    for j in range(1, coloums + 1):
+
+        M[i][j] = max(M[i - 1][j - 1], Ix[i - 1][j - 1], Ix[i - 1][j - 1])
+
+        I[i][j] = max(score.gap_start + score.gap + M[i][j-1],
+                    score.gap + I[i][j-1],
+                    score.gap_start + score.gap + I[i][j-1],
+                    score.gap_start + score.gap + M[i-1][j],
+                    score.gap_start + score.gap + I[i-1][j],
+                    score.gap + I[i-1][j])
 
 
 
-for x in range(1, rows+1):
-    for y in range(1, coloums +1);
-        M[i][j] = max( M[i][j-1] + score.gap,
-               M[i-1][j] + score.gap,
-               M[i-1][j-1] + score.matchchar(x[i-1], y[j-1]),
-               0)
 
-        I[i][j] = max( M[i - 1][j] - d,
-               I[i - 1][j] - e,
-               M[i][j - 1] - e,
-               I[i][j - 1] - e)
-
-optimalScore = M[rows + 1][coloums + 1]
+optimalScore = max( M[rows + 1][coloums + 1], Ix[rows + 1][coloums + 1], Iy[rows + 1][coloums + 1])
 
 
 
@@ -138,19 +185,22 @@ alignedSequenceX = ""
 alignedSequenceY = ""
 
 # Loop for the Traceback. Goes from last Cell to first and concatined the two sequences.
-while rows >1 or coloums > 1:
+while rows > 1 or coloums > 1:
 
+    # if anweisung für den Fall eines Matches.
     if rows > 0 and j > 0 and X[i - 1] == Y[j - 1]:
         align_X = X[rows - 1] + align_X
         align_Y = Y[coloums - 1] + align_Y
         rows = rows - 1
         coloums = coloums - 1
 
+    # Fall das die X Sequence einen gap bekommt.
     elif coloums > 0 and current_score == left_score + penalty:
         align_X = X[rows - 1] + align_X
         alignedSequenceY = "-" + alignedSequenceY
         rows = rows - 1
 
+    # Fall das die Y Sequence einen gap bekommt.
     else:
         alignedSequenceX = "-" + alignedSequenceX
         align_Y = Y[coloums - 1] + align_Y
