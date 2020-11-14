@@ -1,6 +1,7 @@
 #!/usr/bin/python
 import sys, getopt
 from cmath import inf
+import pandas as pd
 
 """assignment_02.py: Pairwise alignment."""
 
@@ -100,30 +101,43 @@ def match(x,y):
         return matchScore
     return mismatchScore
 
-# initialize
+# initialization
 rows, cols = (len(x_sequence), len(y_sequence))
 
-M = [[0] * (cols + 1)] * (rows + 1)
-I = [[0] * (cols + 1)] * (rows + 1)
-        
+# Used pandas because lists have a really dumb behaviour: 
+# If you define the list of lists like this: [[-inf] * (cols + 1)] * (rows + 1)
+# all the rows are actually one list and will always be the same. 
+# To avoid behaviour like this, I used pandas, which has a kind of strange 
+# cell selection syntax but works great once you have got the hang of it
+M = pd.DataFrame([[-inf] * (cols + 1)] * (rows + 1))
+M.loc[0, 0] = 0
+
+I = pd.DataFrame([[-inf] * (cols + 1)] * (rows + 1))
+I.loc[1:,0] = [gap_open + (i - 1) * gap_extend for i in range(1, rows + 1)]
+I.loc[0,1:] = [gap_open + (i - 1) * gap_extend for i in range(1, cols + 1)]
+    
+#print(pd.DataFrame(M))
+#print(pd.DataFrame(I))
+
 # recursion
 
 for i in range(1, rows + 1):
     for j in range(1, cols + 1):
 
-        M[i][j] = max(M[i - 1][j - 1] + match(x_sequence[i-1], y_sequence[j-1]), 
-                      I[i - 1][j - 1] + match(x_sequence[i-1], y_sequence[j-1]))
+        M.loc[i, j] = max(M.loc[i - 1, j - 1] + match(x_sequence[i-1], y_sequence[j-1]), 
+                      I.loc[i - 1, j - 1] + match(x_sequence[i-1], y_sequence[j-1]))
 
-        I[i][j] = max(M[i-1][j] - gap_open,
-                      I[i-1][j] - gap_extend,
-                      M[i][j-1] - gap_open,
-                      I[i][j-1] - gap_extend)
+        I.loc[i, j] = max(M.loc[i-1, j] - gap_open,
+                      I.loc[i-1, j] - gap_extend,
+                      M.loc[i, j-1] - gap_open,
+                      I.loc[i, j-1] - gap_extend)
 
 
-optimalScore = max( M[rows][cols], I[rows][cols])
+optimalScore = max( M.loc[rows, cols], I.loc[rows, cols])
 
 print("optimal alignment score: {}".format(optimalScore))
-
+#print(pd.DataFrame(M))
+#print(pd.DataFrame(I))
 # problem 3: perform trace-back PLEASE_IMPLEMENT
 print("TODO: perform trace-back to compute alignment")
 

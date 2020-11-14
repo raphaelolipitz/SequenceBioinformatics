@@ -1,0 +1,4 @@
+>x
+GCTGGTCA
+>y
+GCTGCGCG
