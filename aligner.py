@@ -82,41 +82,50 @@ elif not (".txt" in input_parameters['ofile']):
     print("Output file has to be a txt file. For help use flag -h")
     sys.exit()
 
+# fill in blank parameter with their default
+if not 'match_score' in input_parameters.keys():
+    print("Match score not provided. Will use default value of 1.")
+    input_parameters["match_score"] = 1
+
+if not 'mismatch_score' in input_parameters.keys():
+    print("Mismatch score not provided. Will use default value of -2.")
+    input_parameters["mismatch_score"] = -2
+
+if not 'gap_open' in input_parameters.keys():    
+    print("Gap open penalty not provided. Will use default value of 3.")
+    input_parameters["gap_open"] = 3
+
+if not 'gap_extend' in input_parameters.keys():
+    print("Gap extension penalty not provided. Will use default value of 2.")
+    input_parameters["gap_extend"] = 2
+    
 # check entered values for their correct sign
-if ("match_score" in input_parameters.keys()
-    and input_parameters["match_score"] < 0):
+if (input_parameters["match_score"] < 0):
         print("Warning: Match score should be positive."
               "For help use flag -h")
 
-if ("mismatch_score" in input_parameters.keys()
-    and input_parameters["match_score"] > 0):
+if (input_parameters["match_score"] > 0):
         print("Warning: Mismatch score should be negative."
               "For help use flag -h")
 
-if ("gap_open" in input_parameters.keys()
-    and input_parameters['gap_open'] < 0):
+if (input_parameters['gap_open'] < 0):
         print("gap penalties are defined positive. Please enter a positive value."
               "For help use flag -h")
         sys.exit()
 
-if ('gap_extend' in input_parameters.keys()
-    and input_parameters['gap_extend'] < 0):
+if (input_parameters['gap_extend'] < 0):
         print("gap penalties are defined positive. Please enter a positive value."
               "For help use flag -h")
         sys.exit()
 
 # check mismatch score vs extension penalty
-if ("mismatch_score" in input_parameters.keys()
-    and 'gap_extend' in input_parameters.keys()
-    and input_parameters["mismatch_score"] <= -2 * input_parameters['gap_extend']):
+if (input_parameters["mismatch_score"] <= -2 * input_parameters['gap_extend']):
         print("Mismatch score has to be larger than -2 times gap extension penalty."
               "For help use flag -h")
         sys.exit()
 
 # check open penalty vs extension penalty        
-if ('gap_open' in input_parameters.keys()
-    and 'gap_extend' in input_parameters.keys()
-    and input_parameters['gap_open'] < input_parameters['gap_extend']):
+if (input_parameters['gap_open'] < input_parameters['gap_extend']):
         print("Warning: gap open penalty is smaller than gap extension penalty."
               "This will lead to more and small gaps."
               "For help use flag -h")
@@ -134,22 +143,6 @@ y_sequence=input.readline().strip() # assuming whole sequence is on one line
 input==sys.stdin or input.close() # close if reading from a file
 
 # problem 1: compute alignment score 
-
-if not 'match_score' in input_parameters.keys():
-    print("Match score not provided. Will use default value of 1.")
-    input_parameters["match_score"] = 1
-
-if not 'mismatch_score' in input_parameters.keys():
-    print("Mismatch score not provided. Will use default value of -2.")
-    input_parameters["mismatch_score"] = -2
-
-if not 'gap_open' in input_parameters.keys():    
-    print("Gap open penalty not provided. Will use default value of 3.")
-    input_parameters["gap_open"] = 3
-
-if not 'gap_extend' in input_parameters.keys():
-    print("Gap extension penalty not provided. Will use default value of 2.")
-    input_parameters["gap_extend"] = 2
 
 d = input_parameters["gap_open"]
 e = input_parameters["gap_extend"]
@@ -180,6 +173,7 @@ I.loc[0,1:] = [-d - (i - 1) * e for i in range(1, cols + 1)]
 #print(pd.DataFrame(I))
 
 # recursion
+# Not really how to use pandas DataFrames but works
 
 for i in range(1, rows + 1):
     for j in range(1, cols + 1):
