@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.5.8)  27 NOV 2020 17:34
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.5.8)  27 NOV 2020 19:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**ass03.tex
-(./ass03.tex
+**ass04.tex
+(./ass04.tex
 LaTeX2e <2018-04-01> patch level 4
 Babel <3.20> and hyphenation patterns for 10 language(s) loaded.
 (c:/texlive/2018/texmf-dist/tex/latex/base/article.cls
@@ -166,8 +166,8 @@ Package: titling 2009/09/04 v2.1d maketitle typesetting
 \thanksmarkwidth=\skip47
 \thanksmargin=\skip48
 \droptitle=\skip49
-) (./ass03.aux)
-\openout1 = `ass03.aux'.
+) (./ass04.aux)
+\openout1 = `ass04.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
 LaTeX Font Info:    ... okay on input line 16.
@@ -264,26 +264,24 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 19.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
-{c:/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./ass03.aux) )
+{c:/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./ass04.aux) )
  
 Here is how much of TeX's memory you used:
- 4809 strings out of 494497
- 97748 string characters out of 6174740
- 198984 words of memory out of 5000000
- 8399 multiletter control sequences out of 15000+600000
- 11409 words of font info for 45 fonts, out of 8000000 for 9000
+ 4806 strings out of 494497
+ 97709 string characters out of 6174740
+ 197984 words of memory out of 5000000
+ 8397 multiletter control sequences out of 15000+600000
+ 11241 words of font info for 44 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 51i,18n,64p,899b,400s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 52i,19n,73p,327b,438s stack positions out of 5000i,500n,10000p,200000b,80000s
 <c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texli
 ve/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2018/te
 xmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2018/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmr17.pfb><c:/texlive/2018/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmtt10.pfb>
-Output written on ass03.pdf (1 page, 68898 bytes).
+onts/type1/public/amsfonts/cm/cmr17.pfb>
+Output written on ass04.pdf (1 page, 51237 bytes).
 PDF statistics:
- 32 PDF objects out of 1000 (max. 8388607)
- 22 compressed objects within 1 object stream
+ 24 PDF objects out of 1000 (max. 8388607)
+ 16 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
