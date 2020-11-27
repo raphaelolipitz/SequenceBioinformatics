@@ -1,0 +1,37 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[english]{babel}
+\usepackage{graphicx} 
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{amstext}
+\usepackage{scrlayer-scrpage}
+\usepackage{titling}
+\pagestyle{scrheadings}
+\clearpairofpagestyles
+
+\author{Emil Paulitz, Raphael Olipitz}
+\title{Sequence Bioinformatics\\Assignment 03}
+\begin{document}
+	\ohead{\theauthor}
+	\cfoot{\pagemark}
+	\maketitle
+	\section*{Task 1}
+		There are $3\cdot4\cdot\cdot = 48$ edges between nucleotides of different sequences: $4\cdot4$ between each sequence, so $3$ times that for $3$ sequences.\\
+		For each sequence, there are 11 possible paths to go through it with only entering once: do not visit this sequence (1), visit only one nucleotide (4), visit 2 nucleotides (3), 3 nucleotides (2), or all four nucleotides (1). Thus, there are $11\cdot11\cdot11$ possibilities altogether. You have to subtract $5\cdot5\cdot5$ paths, with which you do not use any directed edge. Also, for every sequence there are 6 possible paths with which you do take an directed edge, but you have to subtract these possibilities if you do not visit the other sequences: $3\cdot6$. But, if one visits all three sequences and takes at least one directed edge ($10\cdot10\cdot10 - 4\cdot4\cdot4$ possible paths), there are two possible combinations of sequences: $012$ and $021$, so one has to add this. Altogether: $$11\cdot11\cdot11 - 5\cdot5\cdot5 - 3\cdot6 + 10\cdot10\cdot10 - 4\cdot4\cdot4 = 2124$$
+	\section*{Tasks 2-3}
+		See jupyter notebook "Assignment03.ipynb"
+	\section*{Task 4}
+		Result in "MSA.csv"
+	\section*{Task 5}
+		Using the column with the best result, a graph representing the following alignment is returned by lp\_solve:\\
+		\texttt{CA-TG\\CAGT-\\-AGTT}
+		
+\end{document}
+
+
+
+
+
+
