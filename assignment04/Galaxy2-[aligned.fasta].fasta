@@ -1,0 +1,75 @@
+>XP_021954597.1 insulin [Folsomia candida]
+MMASKMNLAVVLISVVVVMIVGSVTSFDLRSEPESHVKQTRSIVSMDVSQPHQPIQVCGL
+RLLDAVRAICRNRGGYVMTRRSDPSLLAPLYEELEIPMSNSLDEASQYPNDAF-------
+-------------------ASENG------VDFPDSGDLWSNARAYKALTESKGAHPRVR
+RNIIDECCKRPCNPHQMVKYCGRA-
+>XP_020714387.1 insulin [Ceratitis capitata]
+-----MKFPEQTLSFPNLLCLSFVVISLVFCVELSPHCTEALPLLPGGSTEVEFKRYCST
+NLSDAIRLICGGRY-YSLSRKFPDSVGMAQVSSLK-----RL------------------
+-------------------AGEDG------------------------------EYRQPF
+QGAIHECCRRPCGYSELKSYCDPDY
+>XP_028898058.1 insulin [Zeugodacus cucurbitae]
+-----MMFPQHTVNFPNLICFSLVVISFVLCVTLTPHCTEAIPLLAGGSNDVEFKRYCST
+NLSDAIRLICGGRY-YSLSRKFPDSVGMGHVSSLK-----RL------------------
+-------------------AGEEG------------------------------EYRQPF
+QGAIHECCRRPCGYPELKSYCDPDY
+>NP_990553.1 insulin preproinsulin precursor [Gallus gallus]
+-----MALWIRSLPLLALLVF----------------------SGPGTSYAAANQHLCGS
+HLVEALYLVCGERG-FFYSPKARRDVEQPLVSSP-------L------------------
+-------------------RGEAG-----------------------VLPFQQEEYEKVK
+RGIVEQCCHNTCSLYQLENYCN---
+>ACF72675.1 insulin, partial [Xenopus tropicalis]
+-----MALWMQCLPLVLVLLF----------------------STPN-TEALANQHLCGS
+HLVEALYLVCGDRG-FFYYPKIKRDIEQAM------------------------------
+-----------------------G------------------------------------
+-------------------------
+>AAX33346.1 insulin, partial [Abrocoma bennettii]
+---------------------------------------------------LVSRRLCGS
+NLVDALFLLCERNG-FY-------------------------------------------
+---------------------------------------------------------RPN
+DGIVDQCCINTCTTNQLLNYCN---
+>AAA37041.1 insulin [Cavia porcellus]
+-----MALWMHLLTVLALLAL----------------------WGPNTNQAFVSRHLCGS
+NLVETLYSVCQDDG-FFYIPKDRRELEDPQVEQTE------L------------------
+-------------------GMGLG---------------------AGGLQPLALEMALQK
+RGIVDQCCTGTCTRHQLQSYCN---
+>ELK28555.1 Insulin [Myotis davidii]
+-----MALWTRLLPLLALLAL----------------------WAPAPAQAFVNQHLCGS
+HLVEALYLVCGERG-FFYTPKDRRELPDPQGESSP------LTPRSHPKGTGYLASVDPS
+QSQDQHLCGDELVNALTITCGDRGFYNPMAPLEQDDLQEEEVEMDEGGLQALTLEGLLQK
+RGIVEECCTNVCSLYQLERYCN---
+>ACD35246.1 insulin [Bos taurus]
+-----MALWTRLAPLLALLAL----------------------WAPAPARAFVNQHLCGS
+HLVEALYLVCGERG-FFYTPKARREVEGPQVGALE------L------------------
+-------------------AGGPG---------------------AGGL-----EGPPQK
+RGIVEQCCASVCSLYQLENYCN---
+>sp|P06306.2|INS_FELCA RecName: Full=Insulin; Contains: RecName: Full=Insulin B chain; Contains: RecName: Full=Insulin A chain; Flags: Precursor
+-----MAPWTRLLPLLALLSL----------------------WIPAPTRAFVNQHLCGS
+HLVEALYLVCGERG-FFYTPKARREAEDLQGKDAE------L------------------
+-------------------GEAPG---------------------AGGLQPSALEAPLQK
+RGIVEQCCASVCSLYQLEHYCN---
+>sp|P01321.1|INS_CANLF RecName: Full=Insulin; Contains: RecName: Full=Insulin B chain; Contains: RecName: Full=Insulin A chain; Flags: Precursor
+-----MALWMRLLPLLALLAL----------------------WAPAPTRAFVNQHLCGS
+HLVEALYLVCGERG-FFYTPKARREVEDLQVRDVE------L------------------
+-------------------AGAPG---------------------EGGLQPLALEGALQK
+RGIVEQCCTSICSLYQLENYCN---
+>sp|Q6YK33.1|INS_GORGO RecName: Full=Insulin; Contains: RecName: Full=Insulin B chain; Contains: RecName: Full=Insulin A chain; Flags: Precursor
+-----MALWMRLLPLLALLAL----------------------WGPDPAAAFVNQHLCGS
+HLVEALYLVCGERG-FFYTPKTRREAEDLQVGQVE------L------------------
+-------------------GGGPG---------------------AGSLQPLALEGSLQK
+RGIVEQCCTSICSLYQLENYCN---
+>AAA59172.1 insulin [Homo sapiens]
+-----MALWMRLLPLLALLAL----------------------WGPDPAAAFVNQHLCGS
+HLVEALYLVCGERG-FFYTPKTRREAEDLQVGQVE------L------------------
+-------------------GGGPG---------------------AGSLQPLALEGSLQK
+RGIVEQCCTSICSLYQLENYCN---
+>sp|Q8HXV2.1|INS_PONPY RecName: Full=Insulin; Contains: RecName: Full=Insulin B chain; Contains: RecName: Full=Insulin A chain; Flags: Precursor
+-----MALWMRLLPLLALLAL----------------------WGPDPAQAFVNQHLCGS
+HLVEALYLVCGERG-FFYTPKTRREAEDLQVGQVE------L------------------
+-------------------GGGPG---------------------AGSLQPLALEGSLQK
+RGIVEQCCTSICSLYQLENYCN---
+>sp|P30410.1|INS_PANTR RecName: Full=Insulin; Contains: RecName: Full=Insulin B chain; Contains: RecName: Full=Insulin A chain; Flags: Precursor
+-----MALWMRLLPLLVLLAL----------------------WGPDPASAFVNQHLCGS
+HLVEALYLVCGERG-FFYTPKTRREAEDLQVGQVE------L------------------
+-------------------GGGPG---------------------AGSLQPLALEGSLQK
+RGIVEQCCTSICSLYQLENYCN---
