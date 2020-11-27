@@ -1,0 +1,41 @@
+Watch is ON 
+Collapsing trees with TBR 
+This is a small data set.  A complete search will be performed.
+Search routine used: finding optimal score 20 times independently, using defaults of xmult plus 10 cycles of tree-drifting (Goloboff 1999). Note: for consensus calculation, trees TBR-collapsed. ALSO NOTE: THIS IS AN OVERKILL FOR MOST DATA SETS! 
+Record search status: every 1 rep(s). 
+Space for 1000 trees in memory 
+Repl. Algor.     Tree        Score       Best Score   Time       Rearrangs.
+0     FUSE       5           545         545          0:00:00    145,749       
+1     FUSE       5           545         545          0:00:00    294,063       
+2     FUSE       5           545         545          0:00:00    439,505       
+3     FUSE       5           545         545          0:00:00    584,928       
+4     FUSE       5           545         545          0:00:00    728,614       
+5     FUSE       5           545         545          0:00:00    876,124       
+6     FUSE       5           545         545          0:00:00    1,022,223     
+7     FUSE       5           545         545          0:00:00    1,169,616     
+8     FUSE       5           545         545          0:00:00    1,312,738     
+9     FUSE       5           545         545          0:00:00    1,458,122     
+10    FUSE       5           545         545          0:00:00    1,600,800     
+11    FUSE       5           545         545          0:00:00    1,745,902     
+12    FUSE       5           545         545          0:00:00    1,890,953     
+13    FUSE       5           545         545          0:00:00    2,036,050     
+14    FUSE       5           545         545          0:00:00    2,183,793     
+15    FUSE       5           545         545          0:00:00    2,328,528     
+16    FUSE       5           545         545          0:00:00    2,472,101     
+17    FUSE       5           545         545          0:00:00    2,616,651     
+18    FUSE       5           545         545          0:00:00    2,759,816     
+19    FUSE       5           545         545          0:00:00    2,905,562     
+19    FUSE       5           ------      545          0:00:00    2,905,562     
+Completed search.
+Total rearrangements examined: 2,905,562. 
+No target score defined.  Best score hit 20 times.
+Best score: 545.  6 trees retained. 
+xmult 0.00 secs. 
+ 
+Note: for consensus calculation, trees will be 
+temporarily collapsed (with TBR) 
+Strict consensus of 6 trees (0 taxa excluded) calculated, as tree 6 
+nelsen 0.00 secs. 
+Selecting tree(s) 6,  
+1 trees selected 
+Saved trees (Nexus format) to file tnt_trees.tre 
