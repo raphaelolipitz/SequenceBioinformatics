@@ -1,0 +1,26 @@
+<itsabeastystatewerein version='2.0' sample='1000000'>
+<statenode id='Tree.t:dna_2'>((((0:0.08618468812233103,5:0.08618468812233103)10:0.048718664190733244,3:0.13490335231306427)12:0.016860088015521663,1:0.15176344032858594)13:0.015244695422311383,((((2:0.06865083693332218,9:0.06865083693332218)14:0.012109378667738549,8:0.08076021560106073)16:0.019197293569250956,(6:0.05652927190132836,7:0.05652927190132836)11:0.04342823726898332)17:0.046138937180254164,4:0.14609644635056585)15:0.020911689400331473)18:0.0</statenode>
+<statenode id='clockRate.c:dna_2'>clockRate.c:dna_2[1 1] (0.0,Infinity): 0.3191035135555295 </statenode>
+<statenode id='birthRate.t:dna_2'>birthRate.t:dna_2[1 1] (-Infinity,Infinity): 11.830246110901756 </statenode>
+<statenode id='clockRate.c:dna_3'>clockRate.c:dna_3[1 1] (0.0,Infinity): 3.73357569684483 </statenode>
+<statenode id='kappa.s:dna_1'>kappa.s:dna_1[1 1] (0.0,Infinity): 2.6740417624542525 </statenode>
+<statenode id='freqParameter.s:dna_1'>freqParameter.s:dna_1[4 1] (0.0,1.0): 0.2561033081997548 0.25108686027554034 0.24956519034293867 0.24324464118176659 </statenode>
+</itsabeastystatewerein>
+<!--
+{"operators":[
+{"id":"StrictClockRateScaler.c:dna_2","p":0.5003677886832667,"accept":9327,"reject":25253,"acceptFC":8836,"rejectFC":24915,"rejectIv":0,"rejectOp":0},
+{"id":"YuleBirthRateScaler.t:dna_2","p":0.2705606451491745,"accept":11030,"reject":23615,"acceptFC":10385,"rejectFC":23443,"rejectIv":0,"rejectOp":0},
+{"id":"strictClockUpDownOperator.c:dna_2","p":0.496662756677653,"accept":8805,"reject":25526,"acceptFC":8357,"rejectFC":25184,"rejectIv":1,"rejectOp":1},
+{"id":"YuleModelTreeScaler.t:dna_2","p":0.7502507444588082,"accept":6324,"reject":28309,"acceptFC":6270,"rejectFC":27543,"rejectIv":0,"rejectOp":0},
+{"id":"YuleModelTreeRootScaler.t:dna_2","p":0.7072335961576042,"accept":4568,"reject":29866,"acceptFC":4495,"rejectFC":29056,"rejectIv":9342,"rejectOp":9342},
+{"id":"YuleModelUniformOperator.t:dna_2","p":"NaN","accept":97957,"reject":245783,"acceptFC":95558,"rejectFC":239673,"rejectIv":0,"rejectOp":0},
+{"id":"YuleModelSubtreeSlide.t:dna_2","p":0.1782123817986099,"accept":6378,"reject":165958,"acceptFC":6345,"rejectFC":161854,"rejectIv":66343,"rejectOp":66343},
+{"id":"YuleModelNarrow.t:dna_2","p":"NaN","accept":4261,"reject":167610,"acceptFC":4131,"rejectFC":163528,"rejectIv":0,"rejectOp":0},
+{"id":"YuleModelWide.t:dna_2","p":"NaN","accept":62,"reject":34177,"acceptFC":61,"rejectFC":33310,"rejectIv":18315,"rejectOp":18315},
+{"id":"YuleModelWilsonBalding.t:dna_2","p":"NaN","accept":40,"reject":34171,"acceptFC":39,"rejectFC":33324,"rejectIv":10419,"rejectOp":10419},
+{"id":"StrictClockRateScaler.c:dna_3","p":0.7318301578958326,"accept":7255,"reject":26971,"acceptFC":7062,"rejectFC":26309,"rejectIv":0,"rejectOp":0},
+{"id":"strictClockUpDownOperator.c:dna_3","p":0.7514773138974427,"accept":7969,"reject":26483,"acceptFC":7761,"rejectFC":25874,"rejectIv":0,"rejectOp":0},
+{"id":"KappaScaler.s:dna_1","p":0.4732627842465794,"accept":311,"reject":845,"acceptFC":304,"rejectFC":817,"rejectIv":0,"rejectOp":0},
+{"id":"FrequenciesExchanger.s:dna_1","p":0.07678273045002336,"accept":477,"reject":670,"acceptFC":458,"rejectFC":669,"rejectIv":0,"rejectOp":0}
+]}
+-->
