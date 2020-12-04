@@ -1,0 +1,75 @@
+>AAX33346.1 insulin, partial [Abrocoma bennettii]
+------------------------------------------------------------
+----------------------LVSRRLCGSNLVDALFLLCERNG-FYRP----------
+------------------------------------------------------------
+------------------------NDGIVDQCCINTCTTNQLLNYCN
+>NP_990553.1 insulin preproinsulin precursor [Gallus gallus]
+----------------------------------------------------------MA
+LWIRSLPLLALLVFSGPGTSYAAANQHLCGSHLVEALYLVCGERGFFYSPKARRDVEQPL
+VSSPLRG-----------------------------------------------------
+---------EAGVLPFQQEEYEKVKRGIVEQCCHNTCSLYQLENYCN
+>AAA37041.1 insulin [Cavia porcellus]
+----------------------------------------------------------MA
+LWMHLLTVLALLALWGPNTNQAFVSRHLCGSNLVETLYSVCQDDGFFYIPKDRRELEDPQ
+VEQTELG-------------------------------------MGLG------------
+---------AGGLQPLALEMALQ-KRGIVDQCCTGTCTRHQLQSYCN
+>ELK28555.1 Insulin [Myotis davidii]
+----------------------------------------------------------MA
+LWTRLLPLLALLALWAPAPAQAFVNQHLCGSHLVEALYLVCGERGFFYTPKDRRELPDPQ
+GESSPLTPRSHPKGTGYLASVDPSQSQDQHLCGDELVNALTITCGDRGFYNPMAPLEQDD
+LQEEEVEMDEGGLQALTLEGLLQ-KRGIVEECCTNVCSLYQLERYCN
+>XP_002920166.2 insulin isoform X2 [Ailuropoda melanoleuca]
+--------------------MGQAVGLGAIKPGGPRSPQPPGTSCTLTRTASRSPSPAMA
+LWTRLLPLLALLAVWAPVPARTFVNQHLCGSHLVEALYLVCGERGFFYTPKARREVEDLP
+AGDAELD-------------------------------------RVPG------------
+---------ADP-QPRALAGALQ-RRGIVEQCCTSICSLYQLENYCN
+>sp|P06306.2|INS_FELCA
+----------------------------------------------------------MA
+PWTRLLPLLALLSLWIPAPTRAFVNQHLCGSHLVEALYLVCGERGFFYTPKARREAEDLQ
+GKDAELG-------------------------------------EAPG------------
+---------AGGLQPSALEAPLQ-KRGIVEQCCASVCSLYQLEHYCN
+>ACD35246.1 insulin [Bos taurus]
+----------------------------------------------------------MA
+LWTRLAPLLALLALWAPAPARAFVNQHLCGSHLVEALYLVCGERGFFYTPKARREVEGPQ
+VGALELA-------------------------------------GGPG------------
+---------AGG-----LEGPPQ-KRGIVEQCCASVCSLYQLENYCN
+>AAA59172.1 insulin [Homo sapiens]
+----------------------------------------------------------MA
+LWMRLLPLLALLALWGPDPAAAFVNQHLCGSHLVEALYLVCGERGFFYTPKTRREAEDLQ
+VGQVELG-------------------------------------GGPG------------
+---------AGSLQPLALEGSLQ-KRGIVEQCCTSICSLYQLENYCN
+>sp|Q6YK33.1|INS_GORGO
+----------------------------------------------------------MA
+LWMRLLPLLALLALWGPDPAAAFVNQHLCGSHLVEALYLVCGERGFFYTPKTRREAEDLQ
+VGQVELG-------------------------------------GGPG------------
+---------AGSLQPLALEGSLQ-KRGIVEQCCTSICSLYQLENYCN
+>sp|Q8HXV2.1|INS_PONPY
+----------------------------------------------------------MA
+LWMRLLPLLALLALWGPDPAQAFVNQHLCGSHLVEALYLVCGERGFFYTPKTRREAEDLQ
+VGQVELG-------------------------------------GGPG------------
+---------AGSLQPLALEGSLQ-KRGIVEQCCTSICSLYQLENYCN
+>sp|P30410.1|INS_PANTR
+----------------------------------------------------------MA
+LWMRLLPLLVLLALWGPDPASAFVNQHLCGSHLVEALYLVCGERGFFYTPKTRREAEDLQ
+VGQVELG-------------------------------------GGPG------------
+---------AGSLQPLALEGSLQ-KRGIVEQCCTSICSLYQLENYCN
+>XP_022363428.1 insulin [Enhydra lutris kenyoni]
+----------------------------------------------------------MA
+LWMRVLPLLALLALWAPAPTAAFVNQHLCGSHLVEALYLVCGERGFFYTPKARREAEDLQ
+ARDAELG-------------------------------------GAPG------------
+---------EGGL-ALGLEGALQ-KRGIVEQCCTSICSLYQLENYCN
+>sp|P01321.1|INS_CANLF
+----------------------------------------------------------MA
+LWMRLLPLLALLALWAPAPTRAFVNQHLCGSHLVEALYLVCGERGFFYTPKARREVEDLQ
+VRDVELA-------------------------------------GAPG------------
+---------EGGLQPLALEGALQ-KRGIVEQCCTSICSLYQLENYCN
+>XP_035930639.1 insulin [Halichoerus grypus]
+MIQKLPPQPPGHLPPPLGALMGRAVGSGAIKPGGPRSPQPPGTSCTRTRTASRSPPPAMA
+LWTHLLPLLALLALWAPAPSRAFVNQHLCGSHLVEALYLVCGERGFFYTPKARREVEDPQ
+ARDVELG-------------------------------------GAPG------------
+---------TGGLQPLALEGALQ-KRGIVEQCCTSICSLYQLENYCN
+>XP_032269837.1 insulin [Phoca vitulina]
+----------------------------------------------------------MA
+IWTHLLPLLALLALWAPAPSRAFVNQHLCGSHLVEALYLVCGERGFFYTPKARREVEDPQ
+ARDVELG-------------------------------------GAPG------------
+---------TGGLQPLALEGALQ-KRGIVEQCCTSICSLYQLENYCN
