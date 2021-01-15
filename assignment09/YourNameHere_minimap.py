@@ -4,7 +4,7 @@ from typing import Tuple, Set, Dict, List
 
 # Sequence bioinformatics, WS 20/21, Daniel Huson
 
-__author__ = "YOUR_NAME(S)_HERE!"
+__author__ = "Emil Paulitz and Raphael Olipitz"
 
 
 def main():
@@ -90,7 +90,38 @@ def sk(s: str, i: int, k: int, r: int) -> str:
 
     # please implement
 
-    return ""
+
+    String_to_return = ""
+
+    #return supstring
+    if r == 0:
+
+        for chr in range(i , k-1):
+
+            String_to_return += s[chr]
+
+    #return reverse complement
+    if r == 1:
+
+        for chr in range(i, k - 1):
+
+            if s[chr] == "A":
+
+                String_to_return += "T"
+
+            if s[chr] == "T":
+                String_to_return += "A"
+
+            if s[chr] == "C":
+                String_to_return += "G"
+
+            if s[chr] == "G":
+                String_to_return += "C"
+
+
+
+
+    return String_to_return
 
 
 def h(s: str) -> int:
@@ -110,7 +141,50 @@ def h(s: str) -> int:
 
     # please implement
 
-    return 0
+    #hashvalue of the DNA bases.
+
+    hash_value_of_A = 0
+    hash_value_of_C = 1
+    hash_value_of_G = 2
+    hash_value_of_T = 3
+
+    intString = ""
+    hash_value = 0
+
+    #computes int complement of the string.
+
+    for chr in s:
+
+        if chr == "A":
+
+            intString += str(hash_value_of_A)
+
+        if chr == "C":
+
+            intString += str(hash_value_of_C)
+
+
+        if chr == "G":
+
+            intString += str(hash_value_of_G)
+
+        if chr == "T":
+
+            intString += str(hash_value_of_T)
+
+
+    k = len(intString)
+
+    while k > 0:
+
+        hash_value += int(intString[k]) * (4**(k - 1))
+
+
+
+
+
+
+    return hash_value
 
 
 def minimizerSketch(s: str, w: int, k: int) -> Set[Tuple[int, int, int]]:
