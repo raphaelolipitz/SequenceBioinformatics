@@ -208,6 +208,37 @@ def minimizerSketch(s: str, w: int, k: int) -> Set[Tuple[int, int, int]]:
 
     # please implement
 
+    if len(s) >= w + k -1:
+
+        for i in range(1, len(s) - w -k + 1):
+
+            m = math.inf
+
+            for j in range(1 , w - 1):
+
+                UV = Tuple[h(sk(s , i+j , k , 0 )) , h(sk( s , i+j , k , 1 ))]
+
+                if UV[0] != UV[1]:
+
+                    m = min(m, min(UV[0], UV[1]))
+
+            for j in range(1, w - 1):
+
+                UV = Tuple[h(sk(s, i+j, k, 0)), h(sk(s, i+j, k, 1))]
+
+                if UV[0] < UV[1] and UV[0] == m:
+
+                    M.update(Tuple[m, i+j, 0])
+
+                elif UV[0] > UV[1] and UV[0] == m:
+
+                    a = Tuple[m, i+j, 1]
+
+                    M.update(a)
+
+
+
+
     return M
 
 
@@ -232,7 +263,16 @@ def index(fastA: [Tuple[str, str]], w: int, k: int) -> Dict[int, List[Tuple[int,
 
     H = dict()
 
+
     # please implement
+
+    for t in fastA:
+
+        M = (minimizerSketch(fastA[t], w, k))
+
+        for f in M:
+
+            H[f[0]] += H[t , f[1] , f[3]]
 
     return H
 
