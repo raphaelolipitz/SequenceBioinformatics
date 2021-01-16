@@ -88,40 +88,32 @@ def sk(s: str, i: int, k: int, r: int) -> str:
                 the sub sequence
             """
 
-    # please implement
+    # return reverse (!) complement
+    
+    if r == 1:  
+            
+        String_to_return = ''
 
+        for pos in range(i-2+k, i-2, -1):
 
-    String_to_return = ""
-
-    #return supstring
-    if r == 0:
-
-        for chr in range(i , k-1):
-
-            String_to_return += s[chr]
-
-    #return reverse complement
-    if r == 1:
-
-        for chr in range(i, k - 1):
-
-            if s[chr] == "A":
-
+            if s[pos] == "A":
                 String_to_return += "T"
 
-            if s[chr] == "T":
+            if s[pos] == "T":
                 String_to_return += "A"
 
-            if s[chr] == "C":
+            if s[pos] == "C":
                 String_to_return += "G"
 
-            if s[chr] == "G":
+            if s[pos] == "G":
                 String_to_return += "C"
 
+        return String_to_return
 
 
-
-    return String_to_return
+    # else return substring
+    
+    return s[i-1:i-1+k]
 
 
 def h(s: str) -> int:
@@ -139,53 +131,18 @@ def h(s: str) -> int:
                     the none-negative hash value
                 """
 
-    # please implement
+    return sum([h_char(c) * 4**i for i,c in enumerate(s)])
 
-    #hashvalue of the DNA bases.
-
-    hash_value_of_A = 0
-    hash_value_of_C = 1
-    hash_value_of_G = 2
-    hash_value_of_T = 3
-
-    intString = ""
-    hash_value = 0
-
-    #computes int complement of the string.
-
-    for chr in s:
-
-        if chr == "A":
-
-            intString += str(hash_value_of_A)
-
-        if chr == "C":
-
-            intString += str(hash_value_of_C)
-
-
-        if chr == "G":
-
-            intString += str(hash_value_of_G)
-
-        if chr == "T":
-
-            intString += str(hash_value_of_T)
-
-
-    k = len(intString)
-
-    while k > 0:
-
-        hash_value += int(intString[k]) * (4**(k - 1))
-
-
-
-
-
-
-    return hash_value
-
+def h_char(c: chr) -> int:
+    if (c == 'A' or c == 'a'):
+        return 0
+    if (c == 'C' or c == 'c'):
+        return 1
+    if (c == 'G' or c == 'g'):
+        return 2
+    if (c == 'T' or c == 't'):
+        return 3
+    return 0
 
 def minimizerSketch(s: str, w: int, k: int) -> Set[Tuple[int, int, int]]:
     """computes all minimizers for a sequence
@@ -210,34 +167,33 @@ def minimizerSketch(s: str, w: int, k: int) -> Set[Tuple[int, int, int]]:
 
     if len(s) >= w + k -1:
 
-        for i in range(1, len(s) - w -k + 1):
+        for i in range(len(s) - w -k + 1):
 
             m = math.inf
 
-            for j in range(1 , w - 1):
+            for j in range(w):
 
-                UV = Tuple[h(sk(s , i+j , k , 0 )) , h(sk( s , i+j , k , 1 ))]
+                u = h(sk(s, i + j, k, 0))
+                
+                v = h(sk(s, i + j, k, 1))
+                
+                if u != v:
+                    
+                    m = min(m,u,v)
 
-                if UV[0] != UV[1]:
+            for j in range(w):
 
-                    m = min(m, min(UV[0], UV[1]))
+                u = h(sk(s, i + j, k, 0))
+                
+                v = h(sk(s, i + j, k, 1))
 
-            for j in range(1, w - 1):
+                if u < v and u == m:
 
-                UV = Tuple[h(sk(s, i+j, k, 0)), h(sk(s, i+j, k, 1))]
+                    M.add((m, i+j, 0))
 
-                if UV[0] < UV[1] and UV[0] == m:
+                elif u > v and u == m:
 
-                    M.update(Tuple[m, i+j, 0])
-
-                elif UV[0] > UV[1] and UV[0] == m:
-
-                    a = Tuple[m, i+j, 1]
-
-                    M.update(a)
-
-
-
+                    M.add((m, i+j, 1))
 
     return M
 
