@@ -63,9 +63,8 @@ def main():
         for t, r, i_min, i_max, ii_min, ii_max in matches:
             print("match:", " target=", t + 1, "range:", i_min + 1, "-", i_max + 1, "to", ii_min + 1, "-", ii_max + 1,
                   "reverse:", r)
-            print(query[1][i_min:i_max])
-            print(sk(targets[t][1], ii_min, ii_max - ii_min, r))
-
+            print("q:" + str(query[1][i_min:i_max]))
+            print("t:" + str(sk(targets[t][1], ii_min, ii_max - ii_min, r)))
 
 
 def sk(s: str, i: int, k: int, r: int) -> str:
@@ -91,30 +90,25 @@ def sk(s: str, i: int, k: int, r: int) -> str:
     # return reverse (!) complement
     
     if r == 1:  
+        if i != 0:
+            return ''.join([comp(c) for c in s[i + k - 1:i - 1:-1]])
+        return ''.join([comp(c) for c in s[k - 1::-1]])
             
-        String_to_return = ''
-
-        for pos in range(i-2+k, i-2, -1):
-
-            if s[pos] == "A":
-                String_to_return += "T"
-
-            if s[pos] == "T":
-                String_to_return += "A"
-
-            if s[pos] == "C":
-                String_to_return += "G"
-
-            if s[pos] == "G":
-                String_to_return += "C"
-
-        return String_to_return
-
 
     # else return substring
     
-    return s[i-1:i-1+k]
-
+    return s[i:i+k]
+    
+def comp(c: chr) -> chr:
+    if (c == 'A' or c == 'a'):
+        return 'T'
+    if (c == 'T' or c == 't'):
+        return 'A'
+    if (c == 'G' or c == 'g'):
+        return 'C'
+    if (c == 'C' or c == 'c'):
+        return 'G'
+    return c
 
 def h(s: str) -> int:
     """Gets the hash value of a DNA sequence
@@ -131,7 +125,7 @@ def h(s: str) -> int:
                     the none-negative hash value
                 """
 
-    return sum([h_char(c) * 4**i for i,c in enumerate(s)])
+    return sum([h_char(c) * 4**i for i,c in enumerate(s[::-1])])
 
 def h_char(c: chr) -> int:
     if (c == 'A' or c == 'a'):
@@ -163,11 +157,9 @@ def minimizerSketch(s: str, w: int, k: int) -> Set[Tuple[int, int, int]]:
                     """
     M = set()
 
-    # please implement
+    if len(s) >= w + k - 1:
 
-    if len(s) >= w + k -1:
-
-        for i in range(len(s) - w -k + 1):
+        for i in range(len(s) - w - k + 1):
 
             m = math.inf
 
@@ -189,11 +181,11 @@ def minimizerSketch(s: str, w: int, k: int) -> Set[Tuple[int, int, int]]:
 
                 if u < v and u == m:
 
-                    M.add((m, i+j, 0))
+                    M.add((m, i + j, 0))
 
-                elif u > v and u == m:
+                elif u > v and v == m:
 
-                    M.add((m, i+j, 1))
+                    M.add((m, i + j, 1))
 
     return M
 
@@ -221,7 +213,7 @@ def index(fastA: [Tuple[str, str]], w: int, k: int) -> Dict[int, List[Tuple[int,
 
     for t,st in enumerate(fastA):
 
-        M = (minimizerSketch(st[1], w, k))
+        M = minimizerSketch(st[1], w, k)
 
         for h,i,r in M:
             
@@ -234,7 +226,6 @@ def index(fastA: [Tuple[str, str]], w: int, k: int) -> Dict[int, List[Tuple[int,
                 H[h] = [(t,i,r)]
 
     return H
-
 
 def map(H: Dict[int, List[Tuple[int, int, int]]], q: str, w: int, k: int, eps: int) -> List[
     Tuple[int, int, int, int, int, int]]:
@@ -263,11 +254,56 @@ def map(H: Dict[int, List[Tuple[int, int, int]]], q: str, w: int, k: int, eps: i
                      """
 
     result = []
+    
+    A = []
 
-    # please implement
+    M = minimizerSketch(q, w, k)
+    
+    for h, i, r in M:
+        
+        if (h in H.keys()):
 
+            for t, ii, rr in H[h]:
+                                    
+                if (r == rr):
+                    
+                    A += [(t,0, i-ii, ii)]
+                    
+                else:
+                    
+                    A += [(t,1, i+ii, ii)]
+
+    #(t,r,c,ii)
+    A.sort()
+    
+    b = 0
+            
+    for e in range(len(A)):
+        
+        if (e == len(A) - 1 or A[e][0] != A[e+1][0] or A[e][1] != A[e+1][1] 
+            or A[e+1][2] - A[e][2] >= eps):
+
+            # in case of different diagonals, start indices are not 
+            # monotonically in-/decreasing
+            # i, ii are only start positions: add k for end positions
+            min_i = min([extract_i(*A[ix]) for ix in range(b,e+1)])
+            max_i = max([extract_i(*A[ix]) for ix in range(b,e+1)]) + k
+            min_ii = min([A[ix][3] for ix in range(b,e+1)])
+            max_ii = max([A[ix][3] for ix in range(b,e+1)]) + k
+                
+            # current t, current x (or r as it is called here)
+            result += [(A[e][0], A[e][1], min_i, max_i, min_ii, max_ii)]
+            
+            b = e + 1
+    
     return result
 
+def extract_i(t,r,c,ii):
+    if (r == 1):
+        return c - ii
+        
+    if (r == 0):
+        return c + ii
 
 def read_fastA(file_loc: str) -> [Tuple[str, str]]:
     """Gets list of headers and sequences in fastA format
