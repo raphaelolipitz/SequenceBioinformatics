@@ -219,16 +219,19 @@ def index(fastA: [Tuple[str, str]], w: int, k: int) -> Dict[int, List[Tuple[int,
 
     H = dict()
 
+    for t,st in enumerate(fastA):
 
-    # please implement
+        M = (minimizerSketch(st[1], w, k))
 
-    for t in fastA:
-
-        M = (minimizerSketch(fastA[t], w, k))
-
-        for f in M:
-
-            H[f[0]] += H[t , f[1] , f[3]]
+        for h,i,r in M:
+            
+            if (h in H.keys()):
+                
+                H[h] += [(t,i,r)]
+                
+            else:
+                
+                H[h] = [(t,i,r)]
 
     return H
 
