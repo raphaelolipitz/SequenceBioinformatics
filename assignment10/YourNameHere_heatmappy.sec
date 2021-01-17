@@ -1,0 +1,58 @@
+# Sequence bioinformatics, WS 20/21, Daniel Huson
+
+from optparse import OptionParser
+from typing import Tuple, List
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+__author__ = "YOUR_NAME_HERE"
+
+
+def main():
+    """
+     Draw heat map for virus alignment header lines
+
+   Usage: YourNameHere_heatmap.py [options] input-file
+
+    Options:
+        -h, --help              show this help message and exit
+    """
+
+    parser = OptionParser("%prog infile", description="Draw heatmap for virus alignment headers",
+                          epilog="Author(s): " + __author__)
+
+    (options, args) = parser.parse_args()
+
+    if len(args) != 1:
+        raise IOError("Must specify input file, got:", args)
+
+    file_loc = args[0]
+
+    taxa, proteins, table = parse_header_lines(file_loc)
+
+    # please implement
+
+    plt.show()
+
+
+def parse_header_lines(file_loc: str) -> Tuple[List[str], List[str], np.array]:
+    """Parses the input lines
+
+                Parameters
+                ----------
+                file_loc : str
+                    The file location
+
+                Returns
+                -------
+                Tuple[List[str], List[str], np.array]
+                    the taxon names, protein names and percentage matrix
+                """
+    # please implement
+    pass
+
+
+if __name__ == '__main__':
+    main()
+
