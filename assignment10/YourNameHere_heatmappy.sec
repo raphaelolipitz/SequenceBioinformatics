@@ -6,7 +6,7 @@ from typing import Tuple, List
 import numpy as np
 import matplotlib.pyplot as plt
 
-__author__ = "YOUR_NAME_HERE"
+__author__ = "Emil Paulitz and Raphael Olipitz"
 
 
 def main():
