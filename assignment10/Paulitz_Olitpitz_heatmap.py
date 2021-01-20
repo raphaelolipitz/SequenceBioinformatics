@@ -2,6 +2,7 @@
 
 from optparse import OptionParser
 from typing import Tuple, List
+from parse_header import parse_header
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -51,7 +52,6 @@ def parse_header_lines(file_loc: str) -> Tuple[List[str], List[str], np.array]:
                 """
     # please implement
     pass
-
 
 if __name__ == '__main__':
     main()
