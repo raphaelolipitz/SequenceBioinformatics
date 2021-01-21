@@ -31,20 +31,27 @@ def main():
     file_loc = args[0]
 
     taxa, proteins, table = parse_header_lines(file_loc)
-    print(len(table))
-    print(len(table[0]))
 
-    plt.figure(dpi = (max(len(taxa), len(proteins)) * 6))
-    plt.rcParams.update({'font.size': 72/max(len(taxa), len(proteins))})
-    plt.pcolor(table)
-    plt.yticks(np.arange(0.5, len(taxa), 1), taxa)
-    plt.xticks(np.arange(0.5, len(proteins), 1), proteins, rotation=10, ha='right')
-    for i in range(len(taxa)):
-        for j in range(len(proteins)):
-            plt.text(j + 0.5, i + 0.5, round(table[i, j],2), ha="center", va="center", color="w")
-    plt.tight_layout()
-    plt.savefig('./heatmap.svg')#, dpi = 'figure')
-    plt.show()
+    if (len(taxa) != 0 and len(proteins) != 0):
+        plt.figure(dpi = (max(len(taxa), len(proteins)) * 6))
+        plt.rcParams.update({'font.size': 72/max(len(taxa), len(proteins))})
+        plt.pcolor(table)
+        plt.yticks(np.arange(0.5, len(taxa), 1), taxa)
+        plt.xticks(np.arange(0.5, len(proteins), 1), proteins, rotation=10, ha='right')
+        for i in range(len(taxa)):
+            for j in range(len(proteins)):
+                if (table[i, j] == 0):
+                    num = 0
+                elif (round(table[i, j],2) == 0):
+                    num = 0.01
+                else:
+                    num = round(table[i, j],2)
+                plt.text(j + 0.5, i + 0.5, num, ha="center", va="center", color="w")
+        plt.tight_layout()
+        plt.savefig('./heatmap.svg')#, dpi = 'figure')
+        plt.show()
+    else:
+        print('No taxa or no proteins found. Check input.')
 
 
 def parse_header_lines(file_loc: str) -> Tuple[List[str], List[str], np.array]:
