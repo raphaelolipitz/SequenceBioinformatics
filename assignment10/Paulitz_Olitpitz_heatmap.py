@@ -4,8 +4,11 @@ from optparse import OptionParser
 from typing import Tuple, List
 from parse_header import parse_header
 
+import sys
 import numpy as np
 import matplotlib.pyplot as plt
+
+sys.setrecursionlimit(10**6)
 
 __author__ = "Emil Paulitz and Raphael Olipitz"
 
