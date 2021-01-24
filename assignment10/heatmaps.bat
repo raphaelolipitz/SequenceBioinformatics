@@ -1,0 +1,10 @@
+python Paulitz_Olitpitz_heatmap.py sample01alignment.tsv
+python Paulitz_Olitpitz_heatmap.py sample02alignment.tsv
+python Paulitz_Olitpitz_heatmap.py sample03alignment.tsv
+python Paulitz_Olitpitz_heatmap.py sample04alignment.tsv
+python Paulitz_Olitpitz_heatmap.py sample05alignment.tsv
+python Paulitz_Olitpitz_heatmap.py sample06alignment.tsv
+python Paulitz_Olitpitz_heatmap.py sample07alignment.tsv
+python Paulitz_Olitpitz_heatmap.py sample08alignment.tsv
+python Paulitz_Olitpitz_heatmap.py sample09alignment.tsv
+python Paulitz_Olitpitz_heatmap.py sample10alignment.tsv

@@ -37,7 +37,9 @@ def main():
 
     if (len(taxa) != 0 and len(proteins) != 0):
         plt.figure(dpi = (max(len(taxa), len(proteins)) * 6))
-        plt.rcParams.update({'font.size': 72/max(len(taxa), len(proteins))})
+        maxLenLabels = max([len(label) for label in taxa + proteins])
+        FontDeterminingVar = max(len(taxa), len(proteins), maxLenLabels/10)
+        plt.rcParams.update({'font.size': min(18, 72/FontDeterminingVar)})
         plt.pcolor(table)
         plt.yticks(np.arange(0.5, len(taxa), 1), taxa)
         plt.xticks(np.arange(0.5, len(proteins), 1), proteins, rotation=10, ha='right')
@@ -51,8 +53,9 @@ def main():
                     num = round(table[i, j],2)
                 plt.text(j + 0.5, i + 0.5, num, ha="center", va="center", color="w")
         plt.tight_layout()
-        plt.savefig('./heatmap.svg')#, dpi = 'figure')
-        plt.show()
+        savename = './heatmap{}.svg'.format(''.join([c for c in file_loc if c.isnumeric()]))
+        plt.savefig(savename)#, dpi = 'figure')
+        #plt.show()
     else:
         print('No taxa or no proteins found. Check input.')
 
