@@ -1,0 +1,39 @@
+Classifier: RDP Naive Bayesian rRNA Classifier Version 2.11, September 2015
+Taxonomical Hierarchy: RDP 16S rRNA training setNo 18 07/2020
+Query File: reads16S-32.fasta
+Submit Date: Wed Feb 10 16:26:00 EST 2021
+Confidence threshold (for classification to Root ONLY): 80%
+Symbol +/- indicates predicted sequence orientation
+
+R1;+;Root;100%;Bacteria;100%;Proteobacteria;100%;Gammaproteobacteria;100%;Pseudomonadales;100%;Moraxellaceae;100%;Acinetobacter;100%
+R2;+;Root;100%;Bacteria;100%;Actinobacteria;100%;Actinobacteria;100%;Actinomycetales;100%;Actinomycetaceae;100%;Schaalia;100%
+R3;+;Root;100%;Bacteria;100%;Firmicutes;100%;Bacilli;100%;Bacillales;100%;Bacillaceae 1;100%;Bacillus;100%
+R4;+;Root;100%;Bacteria;100%;Bacteroidetes;100%;Bacteroidia;100%;Bacteroidales;100%;Bacteroidaceae;100%;Phocaeicola;100%
+R5;+;Root;100%;Bacteria;100%;Bacteroidetes;100%;Bacteroidia;100%;Bacteroidales;100%;Bacteroidaceae;100%;Phocaeicola;100%
+R6;+;Root;100%;Bacteria;100%;Bacteroidetes;100%;Bacteroidia;100%;Bacteroidales;100%;Bacteroidaceae;100%;Phocaeicola;99%
+R7;+;Root;100%;Bacteria;100%;Bacteroidetes;100%;Bacteroidia;100%;Bacteroidales;100%;Bacteroidaceae;100%;Phocaeicola;100%
+R8;+;Root;100%;Bacteria;100%;Bacteroidetes;100%;Bacteroidia;100%;Bacteroidales;100%;Bacteroidaceae;100%;Phocaeicola;100%
+R9;+;Root;100%;Bacteria;100%;Firmicutes;100%;Clostridia;100%;Clostridiales;100%;Clostridiaceae 1;100%;Clostridium sensu stricto;100%
+R10;+;Root;100%;Bacteria;100%;Firmicutes;100%;Clostridia;100%;Clostridiales;100%;Clostridiaceae 1;100%;Clostridium sensu stricto;100%
+R11;+;Root;100%;Bacteria;100%;Firmicutes;100%;Clostridia;100%;Clostridiales;100%;Clostridiaceae 1;100%;Clostridium sensu stricto;100%
+R12;+;Root;100%;Bacteria;100%;Deinococcus-Thermus;100%;Deinococci;100%;Deinococcales;100%;Deinococcaceae;100%;Deinococcus;100%
+R13;+;Root;100%;Bacteria;100%;Firmicutes;100%;Bacilli;100%;Lactobacillales;100%;Enterococcaceae;100%;Enterococcus;100%
+R14;+;Root;100%;Bacteria;100%;Firmicutes;100%;Bacilli;100%;Lactobacillales;100%;Enterococcaceae;100%;Enterococcus;100%
+R15;+;Root;100%;Bacteria;100%;Proteobacteria;100%;Gammaproteobacteria;100%;Enterobacterales;100%;Enterobacteriaceae;100%;Escherichia/Shigella;100%
+R16;+;Root;100%;Bacteria;100%;Campilobacterota;100%;Campylobacteria;100%;Campylobacterales;100%;Helicobacteraceae;100%;Helicobacter;100%
+R17;+;Root;100%;Bacteria;100%;Firmicutes;100%;Bacilli;100%;Lactobacillales;100%;Lactobacillaceae;100%;Lactobacillus;100%
+R18;+;Root;100%;Bacteria;100%;Firmicutes;100%;Bacilli;100%;Bacillales;100%;Listeriaceae;100%;Listeria;100%
+R19;+;Root;100%;Bacteria;100%;Proteobacteria;100%;Betaproteobacteria;100%;Neisseriales;100%;Neisseriaceae;100%;Neisseria;100%
+R20;+;Root;100%;Bacteria;100%;Actinobacteria;100%;Actinobacteria;100%;Propionibacteriales;100%;Propionibacteriaceae;100%;Cutibacterium;100%
+R21;+;Root;100%;Bacteria;100%;Proteobacteria;100%;Gammaproteobacteria;100%;Pseudomonadales;100%;Pseudomonadaceae;100%;Pseudomonas;100%
+R22;+;Root;100%;Bacteria;100%;Proteobacteria;100%;Gammaproteobacteria;100%;Pseudomonadales;100%;Pseudomonadaceae;100%;Pseudomonas;99%
+R23;+;Root;100%;Bacteria;100%;Bacteroidetes;100%;Bacteroidia;100%;Bacteroidales;100%;Porphyromonadaceae;100%;Porphyromonas;100%
+R24;+;Root;100%;Bacteria;100%;Proteobacteria;100%;Alphaproteobacteria;100%;Rhodobacterales;100%;Rhodobacteraceae;100%;Luteovulum;100%
+R25;+;Root;100%;Bacteria;100%;Firmicutes;100%;Bacilli;100%;Bacillales;100%;Staphylococcaceae;100%;Staphylococcus;100%
+R26;+;Root;100%;Bacteria;100%;Firmicutes;100%;Bacilli;100%;Bacillales;100%;Staphylococcaceae;100%;Staphylococcus;100%
+R27;+;Root;100%;Bacteria;100%;Firmicutes;100%;Bacilli;100%;Bacillales;100%;Staphylococcaceae;100%;Staphylococcus;100%
+R28;+;Root;100%;Bacteria;100%;Firmicutes;100%;Bacilli;100%;Bacillales;100%;Staphylococcaceae;100%;Staphylococcus;100%
+R29;+;Root;100%;Bacteria;100%;Firmicutes;100%;Bacilli;100%;Bacillales;100%;Staphylococcaceae;99%;Staphylococcus;99%
+R30;+;Root;100%;Bacteria;100%;Firmicutes;100%;Bacilli;100%;Lactobacillales;100%;Streptococcaceae;100%;Streptococcus;100%
+R31;+;Root;100%;Bacteria;100%;Firmicutes;100%;Bacilli;100%;Lactobacillales;100%;Streptococcaceae;100%;Streptococcus;100%
+R32;+;Root;100%;Bacteria;100%;Firmicutes;100%;Bacilli;100%;Lactobacillales;100%;Streptococcaceae;100%;Streptococcus;100%
